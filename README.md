@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Luxe Dine - Premium In-House QR Ordering System
 
 ![Luxe Dine Banner](https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=1548)
@@ -47,3 +48,6 @@ Luxe Dine is a high-end, premium landing page for an in-house QR ordering system
 ## 📄 License
 
 &copy; 2024 Luxe Dine. All rights reserved. | Official Website for Razorpay KYC Verification.
+=======
+# QRaver-landing_page
+>>>>>>> aaa0b2899c763ab5551fb652dc7575f83790cab1
