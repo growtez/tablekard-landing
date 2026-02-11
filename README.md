@@ -4,7 +4,7 @@
 [![Modern UI](https://img.shields.io/badge/Design-Glassmorphism-black?style=for-the-badge&logo=css3&logoColor=gold)](https://css3.org)
 
 <p align="center">
-  <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1200" alt="Luxe Dine — Premium QR Ordering" width="100%" style="border-radius: 12px;" />
+  <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?auto=format&fit=crop&q=80&w=1200" alt="Luxe Dine — QR Code Scanning for In-House Dining" width="100%" style="border-radius: 12px;" />
 </p>
 
 > **Elevate the dining experience with a touch of luxury.** Luxe Dine is a high-end, in-house QR ordering system crafted for elite restaurants. By blending cutting-edge **Glassmorphism** aesthetics with a seamless **Scan-Order-Pay** workflow, we remove the friction of traditional service.
