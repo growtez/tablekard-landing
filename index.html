@@ -4,13 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tablekard | QR Code Ordering for Restaurants</title>
+    <title>Tablekard | In-House QR Ordering System for Restaurants</title>
     <meta name="description"
-        content="Tablekard is a QR ordering system for restaurants. We onboard your team, set up your menu, and launch so guests can scan, order, and pay at the table.">
+        content="Tablekard is a premium in-house QR ordering system for restaurants. Guests scan, order, and pay right at the table — no app download required.">
+    <meta name="keywords" content="QR ordering, restaurant technology, in-house dining, digital menu, table ordering">
+    <meta name="theme-color" content="#ffffff">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
     <link rel="icon" href="./favicon.svg" type="image/svg+xml">
@@ -18,269 +20,687 @@
 </head>
 
 <body>
-    <div class="page">
-        <header class="site-header">
-            <nav class="nav container">
-                <a class="brand" href="#home">
-                    <span class="brand-mark">Table</span>kard
-                </a>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#blogs">Blogs</a></li>
-                </ul>
-                <div class="nav-actions">
-                    <a class="nav-signin" href="#signin">Sign in</a>
-                    <a class="btn btn-dark" href="#get-started">Get started</a>
+    <!-- Three.js canvas background -->
+    <canvas id="hero-canvas"></canvas>
+
+    <!-- Ambient glow orbs -->
+    <div class="glow-orb glow-orb--1"></div>
+    <div class="glow-orb glow-orb--2"></div>
+    <div class="glow-orb glow-orb--3"></div>
+
+    <!-- Navigation -->
+    <header class="site-header" id="site-header">
+        <nav class="nav container" id="main-nav">
+            <a class="brand" href="#home" id="brand-link">
+                <svg class="brand-icon" width="32" height="32" viewBox="0 0 64 64" fill="none">
+                    <rect width="64" height="64" rx="14" fill="url(#brandGrad)" />
+                    <path d="M18 20h28v6H18zM18 31h20v6H18zM18 42h14v6H18z" fill="#fff" opacity="0.95" />
+                    <defs>
+                        <linearGradient id="brandGrad" x1="0" y1="0" x2="64" y2="64">
+                            <stop stop-color="#f59e0b" />
+                            <stop offset="1" stop-color="#d97706" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span>Table<span class="brand-highlight">kard</span></span>
+            </a>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#demo" class="nav-link">Demo</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a class="btn btn-glow" href="#contact" id="nav-cta">Get Started</a>
+            </div>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+
+        <!-- Mobile menu -->
+        <div class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-links">
+                <li><a href="#home" class="mobile-link">Home</a></li>
+                <li><a href="#how-it-works" class="mobile-link">How It Works</a></li>
+                <li><a href="#features" class="mobile-link">Features</a></li>
+                <li><a href="#demo" class="mobile-link">Demo</a></li>
+                <li><a href="#contact" class="mobile-link">Contact</a></li>
+            </ul>
+            <a class="btn btn-glow btn-full" href="#contact">Get Started</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+        <section class="hero" id="home">
+            <div class="container hero-inner">
+
+                <h1 class="hero-title" data-animate>
+                    Your guests scan.<br>
+                    <span class="gradient-text">They order. They pay.</span><br>
+                    No app needed.
+                </h1>
+
+                <p class="hero-sub" data-animate>
+                    Tablekard turns every table into a smart ordering point. We set up your digital menu,
+                    train your staff, and launch the system — so guests can browse, customize, and pay
+                    right from their phone.
+                </p>
+
+                <div class="hero-actions" data-animate>
+                    <a class="btn btn-primary btn-lg" href="#contact" id="hero-cta-primary">
+                        <span>Start Your Setup</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <a class="btn btn-glass btn-lg" href="#how-it-works" id="hero-cta-secondary">
+                        See How It Works
+                    </a>
                 </div>
-            </nav>
-        </header>
 
-        <main>
-            <section class="hero" id="home">
-                <div id="get-started" class="anchor"></div>
-                <div class="container hero-inner">
-                    <div class="hero-pill" data-animate>
-                        <span>What&#39;s new?</span>
-                        <a href="#features">Explore features &rarr;</a>
-                    </div>
-                    <h1 data-animate>Embrace the future of dining with seamless QR-code menus</h1>
-                    <p class="hero-sub" data-animate>
-                        Tablekard is a QR ordering system built for restaurants. We onboard your team, set up your menu,
-                        and launch the system so guests can scan, order, and pay right from the table.
-                    </p>
-                    <div class="hero-actions" data-animate>
-                        <a class="btn btn-primary" href="#get-started">Create QR menu</a>
-                        <a class="btn btn-light" href="#menu-example">Menu example</a>
-                    </div>
+            </div>
 
-                    <div class="phone-row" id="menu-example">
-                        <div class="phone phone-left" data-animate>
+            <!-- Hero phone mockups -->
+            <div class="hero-phones" data-animate>
+                <div class="phone-showcase">
+                    <!-- Left phone -->
+                    <div class="phone phone--left">
+                        <div class="phone-frame">
                             <div class="phone-notch"></div>
-                            <div class="phone-screen">
-                                <div class="screen-header">
-                                    <span class="screen-time">9:41</span>
-                                    <span class="screen-location">Table 12</span>
-                                    <span class="screen-battery">100%</span>
-                                </div>
-                                <div class="screen-hero">
-                                    <div class="plate"></div>
-                                    <div class="dish-title">Smoky Shawarma</div>
-                                    <div class="dish-price">$9.50</div>
-                                </div>
-                                <div class="screen-footer">
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
+                            <div class="phone-screen phone-screen--light">
+                                <div class="screen-scan-view screen-scan-view--light">
+                                    <div class="scan-qr-art">
+                                        <svg viewBox="0 0 120 120" class="qr-svg">
+                                            <rect x="10" y="10" width="30" height="30" rx="4" fill="#e8900c"
+                                                opacity="0.9" />
+                                            <rect x="80" y="10" width="30" height="30" rx="4" fill="#e8900c"
+                                                opacity="0.9" />
+                                            <rect x="10" y="80" width="30" height="30" rx="4" fill="#e8900c"
+                                                opacity="0.9" />
+                                            <rect x="16" y="16" width="18" height="18" rx="2" fill="#fff" />
+                                            <rect x="86" y="16" width="18" height="18" rx="2" fill="#fff" />
+                                            <rect x="16" y="86" width="18" height="18" rx="2" fill="#fff" />
+                                            <rect x="20" y="20" width="10" height="10" rx="1.5" fill="#e8900c" />
+                                            <rect x="90" y="20" width="10" height="10" rx="1.5" fill="#e8900c" />
+                                            <rect x="20" y="90" width="10" height="10" rx="1.5" fill="#e8900c" />
+                                            <rect x="50" y="10" width="8" height="8" rx="1.5" fill="#e8900c"
+                                                opacity="0.6" />
+                                            <rect x="62" y="10" width="8" height="8" rx="1.5" fill="#e8900c"
+                                                opacity="0.4" />
+                                            <rect x="50" y="22" width="8" height="8" rx="1.5" fill="#e8900c"
+                                                opacity="0.5" />
+                                            <rect x="50" y="50" width="8" height="8" rx="1.5" fill="#e8900c"
+                                                opacity="0.7" />
+                                            <rect x="62" y="50" width="8" height="8" rx="1.5" fill="#e8900c"
+                                                opacity="0.5" />
+                                            <rect x="50" y="62" width="8" height="8" rx="1.5" fill="#e8900c"
+                                                opacity="0.4" />
+                                            <rect x="10" y="50" width="8" height="8" rx="1.5" fill="#e8900c"
+                                                opacity="0.5" />
+                                            <rect x="22" y="50" width="8" height="8" rx="1.5" fill="#e8900c"
+                                                opacity="0.6" />
+                                            <rect x="80" y="50" width="8" height="8" rx="1.5" fill="#e8900c"
+                                                opacity="0.5" />
+                                            <rect x="92" y="62" width="8" height="8" rx="1.5" fill="#e8900c"
+                                                opacity="0.4" />
+                                            <rect x="80" y="80" width="8" height="8" rx="1.5" fill="#e8900c"
+                                                opacity="0.6" />
+                                            <rect x="92" y="92" width="8" height="8" rx="1.5" fill="#e8900c"
+                                                opacity="0.5" />
+                                            <rect x="80" y="100" width="8" height="8" rx="1.5" fill="#e8900c"
+                                                opacity="0.4" />
+                                            <rect x="62" y="80" width="8" height="8" rx="1.5" fill="#e8900c"
+                                                opacity="0.5" />
+                                            <rect x="50" y="100" width="8" height="8" rx="1.5" fill="#e8900c"
+                                                opacity="0.6" />
+                                            <rect x="100" y="80" width="8" height="8" rx="1.5" fill="#e8900c"
+                                                opacity="0.5" />
+                                        </svg>
+                                        <div class="scan-line"></div>
+                                    </div>
+                                    <span class="scan-label scan-label--light">Scan to order</span>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="phone phone-center" data-animate>
+                    <!-- Center phone (main) -->
+                    <div class="phone phone--center">
+                        <div class="phone-frame">
                             <div class="phone-notch"></div>
-                            <div class="phone-screen">
-                                <div class="screen-header">
-                                    <span class="screen-time">9:41</span>
-                                    <span class="screen-location">Downtown Kitchen</span>
-                                    <span class="screen-battery">100%</span>
-                                </div>
-                                <div class="chip-row">
-                                    <span class="chip active">Wraps</span>
-                                    <span class="chip">Burgers</span>
-                                    <span class="chip">Salads</span>
-                                </div>
-                                <div class="menu-grid">
-                                    <div class="menu-card">
-                                        <div class="menu-thumb"></div>
-                                        <div class="menu-name">Chicken Wrap</div>
-                                    </div>
-                                    <div class="menu-card">
-                                        <div class="menu-thumb alt"></div>
-                                        <div class="menu-name">Veggie Wrap</div>
-                                    </div>
-                                </div>
-                                <div class="menu-footer">
-                                    <div class="menu-pill">Add sides</div>
-                                    <div class="menu-pill">View cart</div>
-                                </div>
+                            <div class="phone-screen phone-screen--light">
+                                <img src="./phone-menu.png" alt="Tablekard menu screen" class="phone-screenshot" />
                             </div>
                         </div>
+                    </div>
 
-                        <div class="phone phone-right" data-animate>
+                    <!-- Right phone -->
+                    <div class="phone phone--right">
+                        <div class="phone-frame">
                             <div class="phone-notch"></div>
-                            <div class="phone-screen">
-                                <div class="screen-header">
-                                    <span class="screen-time">9:41</span>
-                                    <span class="screen-location">Table 7</span>
-                                    <span class="screen-battery">100%</span>
-                                </div>
-                                <div class="chip-row">
-                                    <span class="chip active">Burgers</span>
-                                    <span class="chip">Sides</span>
-                                    <span class="chip">Drinks</span>
-                                </div>
-                                <div class="list">
-                                    <div class="list-item">
-                                        <div class="list-thumb"></div>
-                                        <div class="list-info">
-                                            <span class="list-title">Classic Burger</span>
-                                            <span class="list-price">$12.00</span>
-                                        </div>
-                                        <span class="list-qty">1</span>
-                                    </div>
-                                    <div class="list-item">
-                                        <div class="list-thumb alt"></div>
-                                        <div class="list-info">
-                                            <span class="list-title">Cheese Burger</span>
-                                            <span class="list-price">$13.50</span>
-                                        </div>
-                                        <span class="list-qty">1</span>
-                                    </div>
-                                    <div class="list-item">
-                                        <div class="list-thumb"></div>
-                                        <div class="list-info">
-                                            <span class="list-title">House Fries</span>
-                                            <span class="list-price">$4.50</span>
-                                        </div>
-                                        <span class="list-qty">2</span>
-                                    </div>
-                                </div>
+                            <div class="phone-screen phone-screen--light">
+                                <img src="./phone-cart.png" alt="Tablekard cart screen" class="phone-screenshot" />
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="about" id="about">
-                <div class="container about-grid">
-                    <div class="about-copy" data-animate>
-                        <span class="section-pill">About</span>
-                        <h2>
-                            We empower restaurants to embrace innovation and redefine the dining experience.
-                        </h2>
-                        <p>
-                            Our mission is to provide a seamless, intuitive, and digital platform that turns every table
-                            into a smart ordering point.
-                        </p>
+        <!-- ═══════════════════════════ HOW IT WORKS ═══════════════════════════ -->
+        <section class="how-it-works" id="how-it-works">
+            <div class="container">
+                <div class="section-label" data-animate>
+                    <span class="label-line"></span>
+                    <span class="label-text">How It Works</span>
+                    <span class="label-line"></span>
+                </div>
+                <h2 class="section-title" data-animate>Three steps. Zero friction.</h2>
+                <p class="section-desc" data-animate>No app downloads. No clunky tablets. Just a fast, elegant ordering
+                    experience your guests will love.</p>
+
+                <div class="steps-row">
+                    <div class="step-card" data-animate>
+                        <div class="step-number">01</div>
+                        <div class="step-icon-wrap">
+                            <svg class="step-icon" viewBox="0 0 80 80" fill="none">
+                                <!-- QR code icon -->
+                                <rect x="10" y="10" width="22" height="22" rx="3" stroke="#f59e0b" stroke-width="2.5"
+                                    fill="none" />
+                                <rect x="48" y="10" width="22" height="22" rx="3" stroke="#f59e0b" stroke-width="2.5"
+                                    fill="none" />
+                                <rect x="10" y="48" width="22" height="22" rx="3" stroke="#f59e0b" stroke-width="2.5"
+                                    fill="none" />
+                                <rect x="16" y="16" width="10" height="10" rx="2" fill="#f59e0b" />
+                                <rect x="54" y="16" width="10" height="10" rx="2" fill="#f59e0b" />
+                                <rect x="16" y="54" width="10" height="10" rx="2" fill="#f59e0b" />
+                                <rect x="48" y="48" width="8" height="8" rx="1.5" fill="#f59e0b" opacity="0.6" />
+                                <rect x="60" y="48" width="8" height="8" rx="1.5" fill="#f59e0b" opacity="0.4" />
+                                <rect x="48" y="60" width="8" height="8" rx="1.5" fill="#f59e0b" opacity="0.5" />
+                                <rect x="60" y="60" width="8" height="8" rx="1.5" fill="#f59e0b" opacity="0.3" />
+                                <!-- Phone outline -->
+                                <rect x="36" y="36" width="6" height="6" rx="1" fill="#f59e0b" opacity="0.7" />
+                            </svg>
+                        </div>
+                        <h3 class="step-title">Scan the QR</h3>
+                        <p class="step-desc">Each table has its own unique QR code. Guests scan with their phone camera
+                            — no app required.</p>
                     </div>
-                    <div class="stats-grid">
-                        <div class="stat-card" data-animate>
-                            <span class="stat-value">10M+</span>
-                            <span class="stat-label">Menus digitized worldwide</span>
+
+                    <div class="step-connector" data-animate>
+                        <svg width="80" height="4" viewBox="0 0 80 4">
+                            <line x1="0" y1="2" x2="80" y2="2" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6 4"
+                                opacity="0.4" />
+                        </svg>
+                    </div>
+
+                    <div class="step-card" data-animate>
+                        <div class="step-number">02</div>
+                        <div class="step-icon-wrap">
+                            <svg class="step-icon" viewBox="0 0 80 80" fill="none">
+                                <!-- Menu/order icon -->
+                                <rect x="15" y="8" width="50" height="64" rx="8" stroke="#f59e0b" stroke-width="2.5"
+                                    fill="none" />
+                                <line x1="24" y1="24" x2="56" y2="24" stroke="#f59e0b" stroke-width="2"
+                                    stroke-linecap="round" opacity="0.8" />
+                                <line x1="24" y1="34" x2="50" y2="34" stroke="#f59e0b" stroke-width="2"
+                                    stroke-linecap="round" opacity="0.6" />
+                                <line x1="24" y1="44" x2="46" y2="44" stroke="#f59e0b" stroke-width="2"
+                                    stroke-linecap="round" opacity="0.5" />
+                                <circle cx="56" cy="56" r="12" fill="#f59e0b" opacity="0.2" stroke="#f59e0b"
+                                    stroke-width="2" />
+                                <line x1="52" y1="56" x2="60" y2="56" stroke="#f59e0b" stroke-width="2.5"
+                                    stroke-linecap="round" />
+                                <line x1="56" y1="52" x2="56" y2="60" stroke="#f59e0b" stroke-width="2.5"
+                                    stroke-linecap="round" />
+                            </svg>
                         </div>
-                        <div class="stat-card" data-animate>
-                            <span class="stat-value">50+</span>
-                            <span class="stat-label">Countries supported</span>
+                        <h3 class="step-title">Browse & Order</h3>
+                        <p class="step-desc">Your full menu loads instantly. Guests browse, customize, and add to cart
+                            with a tap.</p>
+                    </div>
+
+                    <div class="step-connector" data-animate>
+                        <svg width="80" height="4" viewBox="0 0 80 4">
+                            <line x1="0" y1="2" x2="80" y2="2" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6 4"
+                                opacity="0.4" />
+                        </svg>
+                    </div>
+
+                    <div class="step-card" data-animate>
+                        <div class="step-number">03</div>
+                        <div class="step-icon-wrap">
+                            <svg class="step-icon" viewBox="0 0 80 80" fill="none">
+                                <!-- Payment/check icon -->
+                                <rect x="12" y="18" width="56" height="44" rx="8" stroke="#f59e0b" stroke-width="2.5"
+                                    fill="none" />
+                                <line x1="12" y1="32" x2="68" y2="32" stroke="#f59e0b" stroke-width="2" opacity="0.5" />
+                                <rect x="20" y="42" width="20" height="6" rx="3" fill="#f59e0b" opacity="0.4" />
+                                <circle cx="54" cy="46" r="10" fill="none" stroke="#22c55e" stroke-width="2.5" />
+                                <polyline points="49,46 52,49 59,42" fill="none" stroke="#22c55e" stroke-width="2.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
                         </div>
-                        <div class="stat-card" data-animate>
-                            <span class="stat-value">5K+</span>
-                            <span class="stat-label">Restaurants on the platform</span>
+                        <h3 class="step-title">Pay & Done</h3>
+                        <p class="step-desc">Secure payment at the table. Order goes straight to the kitchen. No
+                            waiting, no hassle.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════ FEATURES ═══════════════════════════ -->
+        <section class="features" id="features">
+            <div class="container">
+                <div class="section-label" data-animate>
+                    <span class="label-line"></span>
+                    <span class="label-text">Features</span>
+                    <span class="label-line"></span>
+                </div>
+                <h2 class="section-title" data-animate>Everything your restaurant needs.</h2>
+                <p class="section-desc" data-animate>Powerful tools designed for in-house dining excellence.</p>
+
+                <div class="bento-grid">
+                    <!-- Large card -->
+                    <div class="bento-card bento-card--large" data-animate>
+                        <div class="bento-visual">
+                            <div class="dashboard-art">
+                                <div class="dash-header">
+                                    <div class="dash-dots">
+                                        <span style="background:#ef4444"></span>
+                                        <span style="background:#fbbf24"></span>
+                                        <span style="background:#22c55e"></span>
+                                    </div>
+                                    <span class="dash-title-bar">Tablekard Dashboard</span>
+                                </div>
+                                <div class="dash-body">
+                                    <div class="dash-sidebar">
+                                        <div class="dash-nav-item dash-nav-active"></div>
+                                        <div class="dash-nav-item"></div>
+                                        <div class="dash-nav-item"></div>
+                                        <div class="dash-nav-item"></div>
+                                    </div>
+                                    <div class="dash-content">
+                                        <div class="dash-chart">
+                                            <div class="chart-bar" style="height:40%"></div>
+                                            <div class="chart-bar" style="height:65%"></div>
+                                            <div class="chart-bar chart-bar--accent" style="height:90%"></div>
+                                            <div class="chart-bar" style="height:55%"></div>
+                                            <div class="chart-bar" style="height:75%"></div>
+                                            <div class="chart-bar" style="height:45%"></div>
+                                            <div class="chart-bar chart-bar--accent" style="height:85%"></div>
+                                        </div>
+                                        <div class="dash-stats">
+                                            <div class="dash-stat">
+                                                <span class="dash-stat-val">234</span>
+                                                <span class="dash-stat-label">Orders today</span>
+                                            </div>
+                                            <div class="dash-stat">
+                                                <span class="dash-stat-val">$4.2K</span>
+                                                <span class="dash-stat-label">Revenue</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="stat-card" data-animate>
-                            <span class="stat-value">20M+</span>
-                            <span class="stat-label">Orders processed</span>
+                        <div class="bento-content">
+                            <h3>Real-time Dashboard</h3>
+                            <p>Track orders, peak hours, top sellers, and revenue — all from a single, unified dashboard
+                                built for restaurant managers.</p>
+                        </div>
+                    </div>
+
+                    <!-- Small cards -->
+                    <div class="bento-card" data-animate>
+                        <div class="bento-icon">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="#f59e0b" stroke-width="2"
+                                stroke-linecap="round">
+                                <rect x="6" y="6" width="36" height="36" rx="8" />
+                                <circle cx="24" cy="20" r="6" />
+                                <path d="M14 38c0-5.5 4.5-10 10-10s10 4.5 10 10" />
+                            </svg>
+                        </div>
+                        <h3>Done-for-you Setup</h3>
+                        <p>We digitize your menu, design QR codes for each table, and onboard your team. You focus on
+                            cooking.</p>
+                    </div>
+
+                    <div class="bento-card" data-animate>
+                        <div class="bento-icon">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="#f59e0b" stroke-width="2"
+                                stroke-linecap="round">
+                                <path d="M8 12h32M8 24h24M8 36h16" />
+                                <circle cx="38" cy="34" r="8" fill="#f59e0b" opacity="0.15" stroke="#f59e0b" />
+                                <path d="M35 34h6M38 31v6" stroke="#f59e0b" stroke-width="2" />
+                            </svg>
+                        </div>
+                        <h3>Instant Menu Updates</h3>
+                        <p>Change prices, add specials, or mark items sold-out in real time. Your digital menu is always
+                            current.</p>
+                    </div>
+
+                    <div class="bento-card" data-animate>
+                        <div class="bento-icon">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="#f59e0b" stroke-width="2"
+                                stroke-linecap="round">
+                                <rect x="4" y="12" width="40" height="26" rx="4" />
+                                <line x1="4" y1="22" x2="44" y2="22" />
+                                <rect x="8" y="28" width="14" height="4" rx="2" fill="#f59e0b" opacity="0.3" />
+                                <path d="M12 4l4 8M36 4l-4 8" />
+                            </svg>
+                        </div>
+                        <h3>Secure Payments</h3>
+                        <p>Accept UPI, cards, and wallets directly at the table. Every transaction is encrypted and
+                            instant.</p>
+                    </div>
+
+                    <div class="bento-card" data-animate>
+                        <div class="bento-icon">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="#f59e0b" stroke-width="2"
+                                stroke-linecap="round">
+                                <path d="M24 4v12l8-4" />
+                                <circle cx="24" cy="28" r="16" fill="#f59e0b" opacity="0.1" stroke="#f59e0b" />
+                                <path d="M18 28l4 4 8-8" stroke="#22c55e" stroke-width="2.5" />
+                            </svg>
+                        </div>
+                        <h3>Kitchen-Ready Orders</h3>
+                        <p>Orders hit the kitchen display the moment guests confirm. No misheard orders, no handwriting
+                            confusion.</p>
+                    </div>
+
+                    <div class="bento-card bento-card--wide" data-animate>
+                        <div class="bento-content">
+                            <h3>Multi-Table Management</h3>
+                            <p>See every active table, order status, and time elapsed. Flag tables that need attention
+                                with one tap.</p>
+                        </div>
+                        <div class="bento-table-art">
+                            <div class="table-grid-art">
+                                <div class="table-dot table-dot--active" data-label="T1">
+                                    <span class="table-pulse"></span>
+                                </div>
+                                <div class="table-dot table-dot--waiting" data-label="T2"></div>
+                                <div class="table-dot table-dot--active" data-label="T3">
+                                    <span class="table-pulse"></span>
+                                </div>
+                                <div class="table-dot" data-label="T4"></div>
+                                <div class="table-dot table-dot--active" data-label="T5">
+                                    <span class="table-pulse"></span>
+                                </div>
+                                <div class="table-dot table-dot--waiting" data-label="T6"></div>
+                                <div class="table-dot" data-label="T7"></div>
+                                <div class="table-dot table-dot--active" data-label="T8">
+                                    <span class="table-pulse"></span>
+                                </div>
+                                <div class="table-dot" data-label="T9"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="logos">
-                <div class="container logos-row" data-animate>
-                    <span class="logo-item">Airtasker</span>
-                    <span class="logo-item">Airtable</span>
-                    <span class="logo-item">Postman</span>
-                    <span class="logo-item">GitHub</span>
+        <!-- ═══════════════════════════ DEMO ═══════════════════════════ -->
+        <section class="demo" id="demo">
+            <div class="container">
+                <div class="section-label" data-animate>
+                    <span class="label-line"></span>
+                    <span class="label-text">Experience</span>
+                    <span class="label-line"></span>
                 </div>
-            </section>
+                <h2 class="section-title" data-animate>See it in action.</h2>
+                <p class="section-desc" data-animate>A complete ordering experience — from scan to payment — built for
+                    speed and elegance.</p>
 
-            <section class="features" id="features">
-                <div class="container">
-                    <div class="section-header" data-animate>
-                        <span class="section-pill">Features</span>
-                        <h2>Everything your dining room needs to run on QR.</h2>
-                        <p>
-                            Tablekard handles setup, training, and launch so your team can focus on hospitality.
-                        </p>
-                    </div>
-                    <div class="features-grid">
-                        <article class="feature-card" data-animate>
-                            <div class="feature-icon">QR</div>
-                            <h3>Done-for-you menu setup</h3>
-                            <p>We digitize your menu, organize categories, and publish updates in minutes.</p>
-                        </article>
-                        <article class="feature-card" data-animate>
-                            <div class="feature-icon">TO</div>
-                            <h3>Table ordering that feels native</h3>
-                            <p>Guests scan, customize, and pay without downloading an app or waiting for service.</p>
-                        </article>
-                        <article class="feature-card" data-animate>
-                            <div class="feature-icon">IN</div>
-                            <h3>Insights for managers</h3>
-                            <p>Track order volume, peak times, and top sellers from a clean, unified dashboard.</p>
-                        </article>
+                <div class="demo-showcase" data-animate>
+                    <div class="demo-device">
+                        <div class="demo-tablet">
+                            <div class="tablet-header">
+                                <div class="tab-dots">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <span class="tab-url">app.tablekard.com/menu</span>
+                            </div>
+                            <div class="tablet-body">
+                                <div class="tablet-sidebar">
+                                    <div class="tab-logo">
+                                        <svg width="28" height="28" viewBox="0 0 64 64">
+                                            <rect width="64" height="64" rx="14" fill="#f59e0b" />
+                                            <path d="M18 20h28v6H18zM18 31h20v6H18zM18 42h14v6H18z" fill="#fff"
+                                                opacity="0.95" />
+                                        </svg>
+                                    </div>
+                                    <div class="tab-cat tab-cat--active">
+                                        <span>🍔</span>
+                                        <span>Burgers</span>
+                                    </div>
+                                    <div class="tab-cat">
+                                        <span>🍕</span>
+                                        <span>Pizza</span>
+                                    </div>
+                                    <div class="tab-cat">
+                                        <span>🥗</span>
+                                        <span>Salads</span>
+                                    </div>
+                                    <div class="tab-cat">
+                                        <span>🍰</span>
+                                        <span>Desserts</span>
+                                    </div>
+                                    <div class="tab-cat">
+                                        <span>🍹</span>
+                                        <span>Drinks</span>
+                                    </div>
+                                </div>
+                                <div class="tablet-main">
+                                    <div class="tab-menu-grid">
+                                        <div class="tab-menu-card">
+                                            <div class="tab-card-thumb"
+                                                style="background: linear-gradient(135deg, #fbbf24, #f59e0b);">
+                                                <span>🍔</span>
+                                            </div>
+                                            <div class="tab-card-info">
+                                                <span class="tab-card-name">Classic Smash Burger</span>
+                                                <span class="tab-card-desc">Angus beef, cheddar, pickles</span>
+                                                <div class="tab-card-bottom">
+                                                    <span class="tab-card-price">$12.00</span>
+                                                    <span class="tab-card-add">Add +</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-menu-card">
+                                            <div class="tab-card-thumb"
+                                                style="background: linear-gradient(135deg, #fb923c, #dc2626);">
+                                                <span>🌶️</span>
+                                            </div>
+                                            <div class="tab-card-info">
+                                                <span class="tab-card-name">Spicy Jalapeño Burger</span>
+                                                <span class="tab-card-desc">Pepper jack, jalapeño relish</span>
+                                                <div class="tab-card-bottom">
+                                                    <span class="tab-card-price">$14.50</span>
+                                                    <span class="tab-card-add">Add +</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-menu-card">
+                                            <div class="tab-card-thumb"
+                                                style="background: linear-gradient(135deg, #a3e635, #65a30d);">
+                                                <span>🥑</span>
+                                            </div>
+                                            <div class="tab-card-info">
+                                                <span class="tab-card-name">Avocado Stack Burger</span>
+                                                <span class="tab-card-desc">Guac, swiss, sprouts</span>
+                                                <div class="tab-card-bottom">
+                                                    <span class="tab-card-price">$15.00</span>
+                                                    <span class="tab-card-add">Add +</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-menu-card">
+                                            <div class="tab-card-thumb"
+                                                style="background: linear-gradient(135deg, #c084fc, #7c3aed);">
+                                                <span>🍄</span>
+                                            </div>
+                                            <div class="tab-card-info">
+                                                <span class="tab-card-name">Mushroom Swiss Burger</span>
+                                                <span class="tab-card-desc">Sautéed mushrooms, swiss</span>
+                                                <div class="tab-card-bottom">
+                                                    <span class="tab-card-price">$13.50</span>
+                                                    <span class="tab-card-add">Add +</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="blogs" id="blogs">
-                <div class="container">
-                    <div class="section-header" data-animate>
-                        <span class="section-pill">Blogs</span>
-                        <h2>Insights for modern restaurant teams.</h2>
-                        <p>Strategies and playbooks to streamline service and grow repeat visits.</p>
+        <!-- ═══════════════════════════ CONTACT ═══════════════════════════ -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info" data-animate>
+                        <div class="section-label section-label--left">
+                            <span class="label-text">Get In Touch</span>
+                        </div>
+                        <h2 class="section-title section-title--left">Ready to transform<br>your dining room?</h2>
+                        <p class="section-desc section-desc--left">We'll set up your menu, design your QR codes, train
+                            your team, and get you live — usually within a week.</p>
+
+                        <div class="contact-highlights">
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e"
+                                        stroke-width="2" stroke-linecap="round">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg>
+                                </div>
+                                <span>Free setup & onboarding</span>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e"
+                                        stroke-width="2" stroke-linecap="round">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg>
+                                </div>
+                                <span>Launch in under 7 days</span>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e"
+                                        stroke-width="2" stroke-linecap="round">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg>
+                                </div>
+                                <span>Dedicated support team</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="blog-grid">
-                        <article class="blog-card" data-animate>
-                            <span class="blog-tag">Operations</span>
-                            <h3>Cut wait times with a table-first workflow</h3>
-                            <p>See how QR ordering removes bottlenecks and keeps tables turning smoothly.</p>
-                            <a class="blog-link" href="#">Read more</a>
-                        </article>
-                        <article class="blog-card" data-animate>
-                            <span class="blog-tag">Experience</span>
-                            <h3>Make repeat customers feel instantly recognized</h3>
-                            <p>Use smart menus and real-time updates to personalize every visit.</p>
-                            <a class="blog-link" href="#">Read more</a>
-                        </article>
-                        <article class="blog-card" data-animate>
-                            <span class="blog-tag">Growth</span>
-                            <h3>Launch QR ordering in under a week</h3>
-                            <p>A practical checklist for onboarding your team and going live fast.</p>
-                            <a class="blog-link" href="#">Read more</a>
-                        </article>
+
+                    <div class="contact-form-wrap" data-animate>
+                        <form class="contact-form" id="contact-form">
+                            <div class="form-group">
+                                <label for="restaurant-name">Restaurant Name</label>
+                                <input type="text" id="restaurant-name" name="restaurant_name"
+                                    placeholder="e.g. Downtown Kitchen" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contact-name">Your Name</label>
+                                    <input type="text" id="contact-name" name="contact_name" placeholder="John Smith"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact-phone">Phone</label>
+                                    <input type="tel" id="contact-phone" name="phone" placeholder="+91 98765 43210"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email">Email</label>
+                                <input type="email" id="contact-email" name="email" placeholder="john@restaurant.com"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-message">Message <span class="optional">(optional)</span></label>
+                                <textarea id="contact-message" name="message" rows="4"
+                                    placeholder="Tell us about your restaurant — number of tables, current setup, etc."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg btn-full" id="submit-btn">
+                                <span>Request Setup Call</span>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </button>
+                        </form>
                     </div>
                 </div>
-            </section>
-        </main>
+            </div>
+        </section>
+    </main>
 
-        <footer class="footer">
-            <div id="signin" class="anchor"></div>
-            <div class="container footer-grid">
+    <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
                 <div class="footer-brand">
-                    <span class="brand-mark">Table</span>kard
-                    <p>QR ordering built for restaurants that want faster service and happier guests.</p>
+                    <a href="#home" class="brand">
+                        <svg class="brand-icon" width="28" height="28" viewBox="0 0 64 64" fill="none">
+                            <rect width="64" height="64" rx="14" fill="url(#brandGrad2)" />
+                            <path d="M18 20h28v6H18zM18 31h20v6H18zM18 42h14v6H18z" fill="#fff" opacity="0.95" />
+                            <defs>
+                                <linearGradient id="brandGrad2" x1="0" y1="0" x2="64" y2="64">
+                                    <stop stop-color="#f59e0b" />
+                                    <stop offset="1" stop-color="#d97706" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <span>Table<span class="brand-highlight">kard</span></span>
+                    </a>
+                    <p class="footer-tagline">In-house QR ordering built for restaurants that want faster service and
+                        happier guests.</p>
                 </div>
-                <div class="footer-links">
-                    <h4>Company</h4>
-                    <a href="#home">Home</a>
-                    <a href="#about">About Us</a>
-                    <a href="#features">Features</a>
-                    <a href="#blogs">Blogs</a>
-                </div>
-                <div class="footer-links">
-                    <h4>Legal</h4>
-                    <a href="terms.html">Terms of Service</a>
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="refund.html">Refund &amp; Cancellation</a>
+                <div class="footer-nav">
+                    <div class="footer-col">
+                        <h4>Product</h4>
+                        <a href="#home">Home</a>
+                        <a href="#how-it-works">How It Works</a>
+                        <a href="#features">Features</a>
+                        <a href="#demo">Demo</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Legal</h4>
+                        <a href="terms.html">Terms of Service</a>
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="refund.html">Refund & Cancellation</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Reach Us</h4>
+                        <a href="#contact">Get Started</a>
+                        <a href="mailto:hello@tablekard.com">hello@tablekard.com</a>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Tablekard. All rights reserved.</p>
             </div>
-        </footer>
-    </div>
+        </div>
+    </footer>
 
     <script type="module" src="./script.js"></script>
 </body>
