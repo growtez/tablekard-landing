@@ -17,6 +17,7 @@
 
     <link rel="icon" href="./favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="feature-illustrations.css">
 </head>
 
 <body>
@@ -300,149 +301,153 @@
 
         <!-- ═══════════════════════════ FEATURES ═══════════════════════════ -->
         <section class="features" id="features">
-            <div class="container">
-                <div class="section-label" data-animate>
-                    <span class="label-line"></span>
-                    <span class="label-text">Features</span>
-                    <span class="label-line"></span>
+            <div class="features-container">
+                <!-- Sticky Header - Outside container to stick properly -->
+                <div class="features-header-wrapper">
+                    <div class="features-header">
+                        <div class="section-label" data-animate>
+                            <span class="label-line"></span>
+                            <span class="label-text">Features</span>
+                            <span class="label-line"></span>
+                        </div>
+                        <h2 class="section-title" data-animate>Everything your restaurant needs.</h2>
+                        <p class="section-desc" data-animate>Powerful tools designed for in-house dining excellence.</p>
+                    </div>
                 </div>
-                <h2 class="section-title" data-animate>Everything your restaurant needs.</h2>
-                <p class="section-desc" data-animate>Powerful tools designed for in-house dining excellence.</p>
 
-                <div class="bento-grid">
-                    <!-- Large card -->
-                    <div class="bento-card bento-card--large" data-animate>
-                        <div class="bento-visual">
-                            <div class="dashboard-art">
-                                <div class="dash-header">
-                                    <div class="dash-dots">
-                                        <span style="background:#ef4444"></span>
-                                        <span style="background:#fbbf24"></span>
-                                        <span style="background:#22c55e"></span>
+                <div class="container">
+                    <div class="features-stack" id="features-stack">
+                        <div class="features-sticky">
+                            <!-- Feature 1: Real-time Dashboard -->
+                            <div class="feature-card active" data-feature="0">
+                                <div class="feature-visual">
+                                    <div class="dashboard-art">
+                                        <div class="dash-header">
+                                            <div class="dash-dots">
+                                                <span style="background:#ef4444"></span>
+                                                <span style="background:#fbbf24"></span>
+                                                <span style="background:#22c55e"></span>
+                                            </div>
+                                            <span class="dash-title-bar">Tablekard Dashboard</span>
+                                        </div>
+                                        <div class="dash-body">
+                                            <div class="dash-sidebar">
+                                                <div class="dash-nav-item dash-nav-active"></div>
+                                                <div class="dash-nav-item"></div>
+                                                <div class="dash-nav-item"></div>
+                                                <div class="dash-nav-item"></div>
+                                            </div>
+                                            <div class="dash-content">
+                                                <div class="dash-chart">
+                                                    <div class="chart-bar" style="height:40%"></div>
+                                                    <div class="chart-bar" style="height:65%"></div>
+                                                    <div class="chart-bar chart-bar--accent" style="height:90%"></div>
+                                                    <div class="chart-bar" style="height:55%"></div>
+                                                    <div class="chart-bar" style="height:75%"></div>
+                                                    <div class="chart-bar" style="height:45%"></div>
+                                                    <div class="chart-bar chart-bar--accent" style="height:85%"></div>
+                                                </div>
+                                                <div class="dash-stats">
+                                                    <div class="dash-stat">
+                                                        <span class="dash-stat-val">234</span>
+                                                        <span class="dash-stat-label">Orders today</span>
+                                                    </div>
+                                                    <div class="dash-stat">
+                                                        <span class="dash-stat-val">$4.2K</span>
+                                                        <span class="dash-stat-label">Revenue</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <span class="dash-title-bar">Tablekard Dashboard</span>
                                 </div>
-                                <div class="dash-body">
-                                    <div class="dash-sidebar">
-                                        <div class="dash-nav-item dash-nav-active"></div>
-                                        <div class="dash-nav-item"></div>
-                                        <div class="dash-nav-item"></div>
-                                        <div class="dash-nav-item"></div>
-                                    </div>
-                                    <div class="dash-content">
-                                        <div class="dash-chart">
-                                            <div class="chart-bar" style="height:40%"></div>
-                                            <div class="chart-bar" style="height:65%"></div>
-                                            <div class="chart-bar chart-bar--accent" style="height:90%"></div>
-                                            <div class="chart-bar" style="height:55%"></div>
-                                            <div class="chart-bar" style="height:75%"></div>
-                                            <div class="chart-bar" style="height:45%"></div>
-                                            <div class="chart-bar chart-bar--accent" style="height:85%"></div>
-                                        </div>
-                                        <div class="dash-stats">
-                                            <div class="dash-stat">
-                                                <span class="dash-stat-val">234</span>
-                                                <span class="dash-stat-label">Orders today</span>
-                                            </div>
-                                            <div class="dash-stat">
-                                                <span class="dash-stat-val">$4.2K</span>
-                                                <span class="dash-stat-label">Revenue</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="feature-content">
+                                    <h3>Real-time Dashboard</h3>
+                                    <p>Track orders, peak hours, top sellers, and revenue — all from a single, unified
+                                        dashboard
+                                        built for restaurant managers.</p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="bento-content">
-                            <h3>Real-time Dashboard</h3>
-                            <p>Track orders, peak hours, top sellers, and revenue — all from a single, unified dashboard
-                                built for restaurant managers.</p>
-                        </div>
-                    </div>
 
-                    <!-- Small cards -->
-                    <div class="bento-card" data-animate>
-                        <div class="bento-icon">
-                            <svg viewBox="0 0 48 48" fill="none" stroke="#f59e0b" stroke-width="2"
-                                stroke-linecap="round">
-                                <rect x="6" y="6" width="36" height="36" rx="8" />
-                                <circle cx="24" cy="20" r="6" />
-                                <path d="M14 38c0-5.5 4.5-10 10-10s10 4.5 10 10" />
-                            </svg>
-                        </div>
-                        <h3>Done-for-you Setup</h3>
-                        <p>We digitize your menu, design QR codes for each table, and onboard your team. You focus on
-                            cooking.</p>
-                    </div>
-
-                    <div class="bento-card" data-animate>
-                        <div class="bento-icon">
-                            <svg viewBox="0 0 48 48" fill="none" stroke="#f59e0b" stroke-width="2"
-                                stroke-linecap="round">
-                                <path d="M8 12h32M8 24h24M8 36h16" />
-                                <circle cx="38" cy="34" r="8" fill="#f59e0b" opacity="0.15" stroke="#f59e0b" />
-                                <path d="M35 34h6M38 31v6" stroke="#f59e0b" stroke-width="2" />
-                            </svg>
-                        </div>
-                        <h3>Instant Menu Updates</h3>
-                        <p>Change prices, add specials, or mark items sold-out in real time. Your digital menu is always
-                            current.</p>
-                    </div>
-
-                    <div class="bento-card" data-animate>
-                        <div class="bento-icon">
-                            <svg viewBox="0 0 48 48" fill="none" stroke="#f59e0b" stroke-width="2"
-                                stroke-linecap="round">
-                                <rect x="4" y="12" width="40" height="26" rx="4" />
-                                <line x1="4" y1="22" x2="44" y2="22" />
-                                <rect x="8" y="28" width="14" height="4" rx="2" fill="#f59e0b" opacity="0.3" />
-                                <path d="M12 4l4 8M36 4l-4 8" />
-                            </svg>
-                        </div>
-                        <h3>Secure Payments</h3>
-                        <p>Accept UPI, cards, and wallets directly at the table. Every transaction is encrypted and
-                            instant.</p>
-                    </div>
-
-                    <div class="bento-card" data-animate>
-                        <div class="bento-icon">
-                            <svg viewBox="0 0 48 48" fill="none" stroke="#f59e0b" stroke-width="2"
-                                stroke-linecap="round">
-                                <path d="M24 4v12l8-4" />
-                                <circle cx="24" cy="28" r="16" fill="#f59e0b" opacity="0.1" stroke="#f59e0b" />
-                                <path d="M18 28l4 4 8-8" stroke="#22c55e" stroke-width="2.5" />
-                            </svg>
-                        </div>
-                        <h3>Kitchen-Ready Orders</h3>
-                        <p>Orders hit the kitchen display the moment guests confirm. No misheard orders, no handwriting
-                            confusion.</p>
-                    </div>
-
-                    <div class="bento-card bento-card--wide" data-animate>
-                        <div class="bento-content">
-                            <h3>Multi-Table Management</h3>
-                            <p>See every active table, order status, and time elapsed. Flag tables that need attention
-                                with one tap.</p>
-                        </div>
-                        <div class="bento-table-art">
-                            <div class="table-grid-art">
-                                <div class="table-dot table-dot--active" data-label="T1">
-                                    <span class="table-pulse"></span>
+                            <!-- Feature 2: Done-for-you Setup -->
+                            <div class="feature-card" data-feature="1">
+                                <div class="feature-visual">
+                                    <img src="./Done-for-you Setup.png" alt="Done-for-you Setup"
+                                        class="feature-image" />
                                 </div>
-                                <div class="table-dot table-dot--waiting" data-label="T2"></div>
-                                <div class="table-dot table-dot--active" data-label="T3">
-                                    <span class="table-pulse"></span>
+                                <div class="feature-content">
+                                    <h3>Done-for-you Setup</h3>
+                                    <p>We digitize your menu, design QR codes for each table, and onboard your team. You
+                                        focus on cooking.</p>
                                 </div>
-                                <div class="table-dot" data-label="T4"></div>
-                                <div class="table-dot table-dot--active" data-label="T5">
-                                    <span class="table-pulse"></span>
+                            </div>
+
+                            <!-- Feature 3: Instant Menu Updates -->
+                            <div class="feature-card" data-feature="2">
+                                <div class="feature-visual">
+                                    <img src="./Instant Menu Updates section.png" alt="Instant Menu Updates"
+                                        class="feature-image" />
                                 </div>
-                                <div class="table-dot table-dot--waiting" data-label="T6"></div>
-                                <div class="table-dot" data-label="T7"></div>
-                                <div class="table-dot table-dot--active" data-label="T8">
-                                    <span class="table-pulse"></span>
+                                <div class="feature-content">
+                                    <h3>Instant Menu Updates</h3>
+                                    <p>Change prices, add specials, or mark items sold-out in real time. Your digital
+                                        menu is always current.</p>
                                 </div>
-                                <div class="table-dot" data-label="T9"></div>
+                            </div>
+
+                            <!-- Feature 4: Secure Payments -->
+                            <div class="feature-card" data-feature="3">
+                                <div class="feature-visual">
+                                    <img src="./Secure Payments.png" alt="Secure Payments" class="feature-image" />
+                                </div>
+                                <div class="feature-content">
+                                    <h3>Secure Payments</h3>
+                                    <p>Accept UPI, cards, and wallets directly at the table. Every transaction is
+                                        encrypted and instant.</p>
+                                </div>
+                            </div>
+
+                            <!-- Feature 5: Kitchen-Ready Orders -->
+                            <div class="feature-card" data-feature="4">
+                                <div class="feature-visual">
+                                    <img src="./Kitchen-Ready Orders.png" alt="Kitchen-Ready Orders"
+                                        class="feature-image" />
+                                </div>
+                                <div class="feature-content">
+                                    <h3>Kitchen-Ready Orders</h3>
+                                    <p>Orders hit the kitchen display the moment guests confirm. No misheard orders, no
+                                        handwriting confusion.</p>
+                                </div>
+                            </div>
+
+                            <!-- Feature 6: Multi-Table Management -->
+                            <div class="feature-card" data-feature="5">
+                                <div class="feature-visual">
+                                    <div class="table-grid-art table-grid-art--large">
+                                        <div class="table-dot table-dot--active" data-label="T1">
+                                            <span class="table-pulse"></span>
+                                        </div>
+                                        <div class="table-dot table-dot--waiting" data-label="T2"></div>
+                                        <div class="table-dot table-dot--active" data-label="T3">
+                                            <span class="table-pulse"></span>
+                                        </div>
+                                        <div class="table-dot" data-label="T4"></div>
+                                        <div class="table-dot table-dot--active" data-label="T5">
+                                            <span class="table-pulse"></span>
+                                        </div>
+                                        <div class="table-dot table-dot--waiting" data-label="T6"></div>
+                                        <div class="table-dot" data-label="T7"></div>
+                                        <div class="table-dot table-dot--active" data-label="T8">
+                                            <span class="table-pulse"></span>
+                                        </div>
+                                        <div class="table-dot" data-label="T9"></div>
+                                    </div>
+                                </div>
+                                <div class="feature-content">
+                                    <h3>Multi-Table Management</h3>
+                                    <p>See every active table, order status, and time elapsed. Flag tables that need
+                                        attention with one tap.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
