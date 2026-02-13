@@ -470,8 +470,9 @@ section {
 .hero {
     position: relative;
     z-index: 1;
-    padding: 8rem 0 2rem;
-    min-height: 100vh;
+    padding: 8rem 0 4rem;
+    min-height: auto;
+    overflow: visible;
 }
 
 .hero-inner {
@@ -600,7 +601,7 @@ section {
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 0 1rem;
+    padding: 0 1rem 2rem;
 }
 
 .phone-showcase {
@@ -653,7 +654,7 @@ section {
     box-shadow:
         0 25px 60px rgba(0, 0, 0, 0.15),
         0 0 0 1px rgba(0, 0, 0, 0.08);
-    overflow: hidden;
+    overflow: visible;
 }
 
 .phone--center .phone-frame {
@@ -1109,6 +1110,239 @@ section {
 }
 
 /* ═══════════════════════════════════════════════════
+   FEATURES (STACKED STICKY SCROLL - ONE CARD AT A TIME)
+   ═══════════════════════════════════════════════════ */
+.features {
+    position: relative;
+    z-index: 1;
+}
+
+.features-container {
+    padding: 7rem 0;
+}
+
+/* Sticky header that stays visible during scroll */
+.features-header-wrapper {
+    position: sticky;
+    top: 80px;
+    /* Below the main navigation */
+    z-index: 20;
+    background: var(--bg);
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+
+.features-header {
+    position: relative;
+    text-align: center;
+    z-index: 20;
+    padding: 2rem 0 0;
+}
+
+.features-header .section-label,
+.features-header .section-title,
+.features-header .section-desc {
+    pointer-events: auto;
+}
+
+/* Stacked card container */
+.features-stack {
+    position: relative;
+    height: 400vh;
+    /* Height for all 6 cards to scroll through */
+}
+
+.features-sticky {
+    position: sticky;
+    top: 280px;
+    /* Below the sticky header (80px nav + ~200px header height) */
+    height: calc(100vh - 320px);
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Feature card base styles */
+.feature-card {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-xl);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Initial state - all cards offset to left */
+.feature-card {
+    opacity: 0;
+    transform: translateX(-100%);
+}
+
+/* Active state - card is visible */
+.feature-card.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Exit state - card slides out to right */
+.feature-card.exit {
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+/* Z-index stacking - later cards on top */
+.feature-card:nth-child(1) {
+    z-index: 1;
+}
+
+.feature-card:nth-child(2) {
+    z-index: 2;
+}
+
+.feature-card:nth-child(3) {
+    z-index: 3;
+}
+
+.feature-card:nth-child(4) {
+    z-index: 4;
+}
+
+.feature-card:nth-child(5) {
+    z-index: 5;
+}
+
+.feature-card:nth-child(6) {
+    z-index: 6;
+}
+
+.feature-visual {
+    flex-shrink: 0;
+    width: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-visual--icon {
+    width: 140px;
+}
+
+.feature-icon-large {
+    width: 80px;
+    height: 80px;
+    padding: 1rem;
+    background: rgba(232, 144, 12, 0.08);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(232, 144, 12, 0.15);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-card:hover .feature-icon-large {
+    transform: scale(1.1) rotate(3deg);
+}
+
+.feature-icon-large svg {
+    width: 100%;
+    height: 100%;
+}
+
+.feature-content {
+    flex: 1;
+}
+
+.feature-content h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--text);
+}
+
+.feature-content p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* Table grid for feature row */
+.table-grid-art--large {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.table-grid-art--large .table-dot {
+    width: 56px;
+    height: 56px;
+    font-size: 0.7rem;
+}
+
+/* Dashboard art sizing for feature row */
+.feature-card .dashboard-art {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.feature-card .dash-body {
+    min-height: 160px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .features-header-wrapper {
+        top: 70px;
+        /* Adjusted for mobile nav height */
+        padding-bottom: 1.5rem;
+    }
+
+    .features-header {
+        padding: 1.5rem 0 0;
+    }
+
+    .features-sticky {
+        top: 180px;
+        height: calc(100vh - 220px);
+        padding: 0 1rem;
+    }
+
+    .feature-card {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .feature-visual {
+        width: 100%;
+    }
+
+    .feature-visual--icon {
+        width: auto;
+    }
+
+    .table-grid-art--large {
+        justify-content: center;
+    }
+
+    .features-stack {
+        height: 600vh;
+        /* More scroll space on mobile */
+    }
+}
+
+/* ═══════════════════════════════════════════════════
    FEATURES (BENTO GRID)
    ═══════════════════════════════════════════════════ */
 .features {
@@ -1129,16 +1363,24 @@ section {
     border-radius: var(--radius-xl);
     padding: 2rem;
     backdrop-filter: blur(10px);
-    transition: all var(--transition);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
     box-shadow: var(--shadow-sm);
 }
 
 .bento-card:hover {
     background: var(--bg-card-hover);
-    border-color: rgba(232, 144, 12, 0.12);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
+    border-color: rgba(232, 144, 12, 0.25);
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 20px 40px rgba(232, 144, 12, 0.1), 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.bento-card:hover .bento-icon {
+    transform: scale(1.1) rotate(3deg);
+}
+
+.bento-card .bento-icon {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .bento-card--large {
@@ -1364,6 +1606,45 @@ section {
         transform: scale(1.4);
         opacity: 0.4;
     }
+}
+
+/* ═══════════════════════════════════════════════════
+   FEATURES SCROLL ANIMATIONS
+   ═══════════════════════════════════════════════════ */
+.feature-animate {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-animate.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Stagger delay for each feature card */
+.feature-animate:nth-child(1) {
+    transition-delay: 0ms;
+}
+
+.feature-animate:nth-child(2) {
+    transition-delay: 100ms;
+}
+
+.feature-animate:nth-child(3) {
+    transition-delay: 200ms;
+}
+
+.feature-animate:nth-child(4) {
+    transition-delay: 300ms;
+}
+
+.feature-animate:nth-child(5) {
+    transition-delay: 400ms;
+}
+
+.feature-animate:nth-child(6) {
+    transition-delay: 500ms;
 }
 
 /* ═══════════════════════════════════════════════════

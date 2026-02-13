@@ -282,6 +282,47 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
+    // --- Stacked Features Scroll Animation ---
+    const featuresStack = document.getElementById('features-stack');
+    if (featuresStack) {
+        const cards = featuresStack.querySelectorAll('.feature-card');
+        const totalCards = cards.length;
+        
+        function updateCards() {
+            const stackRect = featuresStack.getBoundingClientRect();
+            const stackTop = stackRect.top;
+            const stackHeight = stackRect.height;
+            const viewportHeight = window.innerHeight;
+            
+            // Calculate scroll progress through the stack (0 to 1)
+            // Start when stack enters viewport, end when it leaves
+            const scrollStart = viewportHeight * 0.5; // Start when middle of viewport hits top
+            const scrollEnd = -stackHeight + viewportHeight * 0.5;
+            const scrollRange = scrollStart - scrollEnd;
+            const currentScroll = scrollStart - stackTop;
+            const progress = Math.max(0, Math.min(1, currentScroll / scrollRange));
+            
+            // Calculate which card should be active (0 to totalCards-1)
+            const activeIndex = Math.min(Math.floor(progress * totalCards), totalCards - 1);
+            
+            cards.forEach((card, index) => {
+                card.classList.remove('active', 'exit');
+                
+                if (index < activeIndex) {
+                    // Cards that have passed - exit to right
+                    card.classList.add('exit');
+                } else if (index === activeIndex) {
+                    // Current active card - visible
+                    card.classList.add('active');
+                }
+                // Future cards remain in initial state (offset left)
+            });
+        }
+        
+        window.addEventListener('scroll', updateCards, { passive: true });
+        updateCards(); // Initial call
+    }
+
     // --- Contact form handler ---
     const form = document.getElementById('contact-form');
     if (form) {
